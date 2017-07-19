@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Executing Multiple Classes" parallel="classes" thread-count="3" verbose="2" >
+	<test name="Multiple Methods">
+		<classes>
+			<class name="restassuredtest.RestAssuredTestNGTest" />
+			<class name="restassuredtest.RestAssuredTestNGTestV2" />
+			<class name="restassuredtest.RestAssuredTestNGTestV3" />
+		</classes>
+	</test>
+</suite>

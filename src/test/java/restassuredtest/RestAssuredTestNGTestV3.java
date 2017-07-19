@@ -31,14 +31,16 @@ public class RestAssuredTestNGTestV3 {
 						"be609f956c05b90ef8b7eb6dd96fcfa65cbd61be31df59f4eb791541dc8aa683")
 				.when().post("oauth/token").then().contentType(ContentType.JSON).extract().response();
 
-		System.out.println(res.asString());
+	//	System.out.println(res.asString());
 
 		String token = res.jsonPath().getString("access_token");
-		System.out.println(token + ".......................................");
+	//	System.out.println(token + ".......................................");
 
 		Response res1 = given().auth().oauth2(token).when().get("rest/v3/board.json");
 
 		Assert.assertEquals(res1.statusCode(), 200);
+		System.out.println("Test Case One in " + getClass().getSimpleName() + " with Thread Id:- "
+				+ Thread.currentThread().getId());
 
 	}
 
@@ -57,13 +59,14 @@ public class RestAssuredTestNGTestV3 {
 						"be609f956c05b90ef8b7eb6dd96fcfa65cbd61be31df59f4eb791541dc8aa683")
 				.when().post("oauth/token").then().contentType(ContentType.JSON).extract().response();
 		String token = res.jsonPath().getString("access_token");
-		System.out.println(res.asString());
-		System.out.println(token);
+		//System.out.println(res.asString());
+	//	System.out.println(token);
 		Response res1 = given().auth().oauth2(token).when().get("rest/v3/board.json").then()
 				.contentType(ContentType.JSON).extract().response();
-		System.out.println(res1.asString());
+		//System.out.println(res1.asString());
 		Assert.assertEquals(res1.statusCode(), 200);
-
+		System.out.println("Test Case three in " + getClass().getSimpleName() + " with Thread Id:- "
+				+ Thread.currentThread().getId());
 	}
 
 	/**
@@ -93,6 +96,8 @@ public class RestAssuredTestNGTestV3 {
 		// System.out.println(res1.asString() + "................");
 		// System.out.println(board_id_generated);
 		Assert.assertEquals(res1.statusCode(), 200);
+		System.out.println("Test Case three in " + getClass().getSimpleName() + " with Thread Id:- "
+				+ Thread.currentThread().getId());
 	}
 
 	/**
@@ -122,6 +127,8 @@ public class RestAssuredTestNGTestV3 {
 
 		Assert.assertEquals(res2.statusCode(), 200);
 		// System.out.println(res2.asString());
+		System.out.println("Test Case four in " + getClass().getSimpleName() + " with Thread Id:- "
+				+ Thread.currentThread().getId());
 	}
 
 	/**
@@ -150,6 +157,9 @@ public class RestAssuredTestNGTestV3 {
 				.post("rest/v3/player.json");
 		System.out.println(res2.asString());
 		Assert.assertEquals(res2.statusCode(), 200);
+		System.out.println("Test Case five in " + getClass().getSimpleName() + " with Thread Id:- "
+				+ Thread.currentThread().getId());
+
 	}
 
 	/**
@@ -186,6 +196,9 @@ public class RestAssuredTestNGTestV3 {
 		Response res3 = given().auth().oauth2(token).header("Content-Type", "application/json").body(updated_player)
 				.when().put("http://10.0.1.86/snl/rest/v3/player/" + player_id_generated + ".json");
 		Assert.assertEquals(res2.statusCode(), 200);
+
+		System.out.println("Test Case six in " + getClass().getSimpleName() + " with Thread Id:- "
+				+ Thread.currentThread().getId());
 	}
 
 	/**
@@ -216,12 +229,14 @@ public class RestAssuredTestNGTestV3 {
 		int player_id_generated = given().auth().oauth2(token).when()
 				.get("rest/v3/board/" + board_id_generated + ".json").then().extract().jsonPath()
 				.getInt("response.board.players[0].id");
-		System.out.println("board id " + board_id_generated);
-		System.out.println("player id " + player_id_generated);
+	//	System.out.println("board id " + board_id_generated);
+		//System.out.println("player id " + player_id_generated);
 
 		RestAssured.given().auth().oauth2(token).when()
 				.get("/rest/v3/move/" + board_id_generated + ".json?player_id=" + player_id_generated).then()
 				.statusCode(200);
+		System.out.println("Test Case seven in " + getClass().getSimpleName() + " with Thread Id:- "
+				+ Thread.currentThread().getId());
 	}
 
 }

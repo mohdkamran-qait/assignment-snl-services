@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Executing Test with Parameters">
+	<test name="Parametrization">
+		<parameter name="username" value="su"></parameter>
+		<parameter name="password" value="root_pass"></parameter>
+
+		<classes>
+			<class name="restassuredtest.TestForTestNGParametrization" />
+		</classes>
+
+	</test>
+
+</suite>

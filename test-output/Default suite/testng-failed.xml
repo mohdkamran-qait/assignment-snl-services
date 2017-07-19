@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="restassuredtest.RestAssuredTestNGTestV3">
+      <class name="restassuredtest.TestForTestNGParametrization">
         <methods>
           <include name="setURI"/>
-          <include name="testForGetDetailsOfBoardById_v3"/>
+          <include name="getListOfBoard_v2_By_UsingParameters"/>
         </methods>
-      </class> <!-- restassuredtest.RestAssuredTestNGTestV3 -->
+      </class> <!-- restassuredtest.TestForTestNGParametrization -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
